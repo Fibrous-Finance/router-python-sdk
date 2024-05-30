@@ -1,0 +1,4 @@
+requests
+starknet-py
+pydantic
+
