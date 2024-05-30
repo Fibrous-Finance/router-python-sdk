@@ -143,6 +143,3 @@ if __name__ == "__main__":
     asyncio.run(main())
 ```
 
-# Donations
-If you want to donate, you can send tokens to this address: `0x07bfe36393355f52844e45622ef0f0fd9bcb18c63f9004060effc8cc0970f8e1`
-
