@@ -23,7 +23,7 @@ from fibrouspy import FibrousClient
 
 client = FibrousClient()
 
-# or you can specify custom rpc url (you probably won't need this)
+# or you can specify custom API url (you probably won't need this)
 client = FibrousClient(route_url="https://api.fibrous.finance",
                        graph_url="https://graph.fibrous.finance",
                        router_address="0x00f6f4CF62E3C010E0aC2451cC7807b5eEc19a40b0FaaCd00CCA3914280FDf5a")
