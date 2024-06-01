@@ -1,6 +1,0 @@
-requests
-starknet-py
-pydantic
-
-[dev]
-pytest>=6.0.0
