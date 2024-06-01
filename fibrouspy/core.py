@@ -7,10 +7,11 @@ from starknet_py.hash.selector import get_selector_from_name
 from .models import (RouteSuccess,
                     Token,
                     Protocol,
+                    Slippage,
                     RouteParams,
                     RouteExecuteParams)
 
-from .utils import build_route_url, fix_calldata
+from .utils import build_route_url, fix_calldata, calculate_slippage
 
 
 class FibrousClient:
@@ -86,6 +87,7 @@ class FibrousClient:
 
         response = requests.get(route_url, headers=self.headers).json()
         route_response = RouteSuccess(**response)
+        route_response.slippage = calculate_slippage(route_response)
 
         return route_response
 

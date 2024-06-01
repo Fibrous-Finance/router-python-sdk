@@ -1,7 +1,32 @@
 from typing import List, Union
 from urllib.parse import urlencode
 
-from ..models import RouteParams, RouteExecuteParams
+from ..models import Slippage, RouteParams, RouteExecuteParams, RouteSuccess
+
+
+def calculate_slippage(data: RouteSuccess) -> Slippage:
+    """
+    Calculates expected slippage.
+
+
+    Args:
+        data (RouteSuccess): Data from /route endpoint serialized by fibrouspy.
+
+
+    Returns:
+        slippage (Slippage): Slippage object.
+    """
+    token_in  = data.inputToken
+    token_out = data.outputToken
+
+    input_token_value  = int(data.inputAmount)  / 10 ** token_in.decimals  * float(token_in.price)
+    output_token_value = int(data.outputAmount) / 10 ** token_out.decimals * float(token_out.price)
+
+    slip_rate = (output_token_value - input_token_value) / input_token_value
+
+    return Slippage(input_token_value=input_token_value,
+                    output_token_value=output_token_value,
+                    slippage=slip_rate)
 
 
 def build_route_url(url: str, route_params: RouteParams | RouteExecuteParams) -> str:
