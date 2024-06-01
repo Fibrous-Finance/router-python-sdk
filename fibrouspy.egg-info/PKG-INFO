@@ -1,3 +1,20 @@
+Metadata-Version: 2.1
+Name: fibrouspy
+Version: 0.1.0
+Summary: Fibrous Finance Python Client.
+Home-page: https://github.com/hkey0/fibrous-py
+Author: hkey
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: requests
+Requires-Dist: starknet-py
+Requires-Dist: pydantic
+Provides-Extra: dev
+Requires-Dist: pytest>=6.0.0; extra == "dev"
+
 # Fibrous Finance Router Client for Python
 
 Python client for Fibrous Router. It makes it easy to get the tokens and protocols supported by Fibrous, choose the best route for your swap from the Fibrous API and build those swap transactions. Compatible with Starknetpy.
@@ -64,20 +81,12 @@ RouteSuccess(
     outputToken=Token(...),
     outputAmount='4117',
     route=[Route...],
-    Slippage(input_token_value=0.00381994, output_token_value=0.005948858756000001, slippage=0.5573173285444276),
     estimatedGasUsed='8975364622720',
     bestQuotesByProtocols=['3821', '3876', '3815', '3878', '3838', '4117', '3883', '0', '3838', '5467'],
     time=1.354,
     initial=True
 )
 ```
-
-The slippage object contains the slippage value calculated by processing the input/output amount and token prices. In the example, the slipage object shows that the value of the tokens we send to fibrous is $0.00381, in return we will receive an `output token` with a value of $0.0059 and we will profit 55.73% from this transaction.
-
-```python
- Slippage(input_token_value=0.00381994, output_token_value=0.005948858756000001, slippage=0.5573173285444276)
-```
-
 
 Build transaction:
 ```python
