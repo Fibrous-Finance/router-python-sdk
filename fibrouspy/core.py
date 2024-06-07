@@ -56,7 +56,7 @@ class FibrousClient:
         A list of supported AMM protocols by Fibrous.
 
         Returns:
-            protocls (Dict[str, Protocol]): List of protocols.
+            protocols (Dict[str, Protocol]): List of protocols.
         """
         response = requests.get(f"{self.route_url}/protocols",
                                 headers = self.headers).json()
