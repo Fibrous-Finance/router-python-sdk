@@ -2,8 +2,8 @@ import requests
 from web3 import Web3
 from web3.contract import Contract
 from typing import Any, Dict, List, Optional, Union
-from .abis.erc20ABI import erc20_abi
-from .abis.fibrousRouterABI import fibrousRouterABI
+from abis.erc20ABI import erc20ABI
+from abis.fibrousRouterABI import fibrousRouterABI
 
 class FibrousRouter:
     DEFAULT_API_URL = "https://api.fibrous.finance"
@@ -64,7 +64,7 @@ class FibrousRouter:
 
     def build_approve_evm(self, amount: int, token_address: str, account: Web3, chain_name: str) -> bool:
         if chain_name == "scroll":
-            contract = account.eth.contract(address=token_address, abi=erc20_abi)
+            contract = account.eth.contract(address=token_address, abi=erc20ABI)
             allowance = contract.functions.allowance(account.eth.default_account, self.SCROLL_ROUTER_ADDRESS).call()
             if allowance >= amount:
                 return True

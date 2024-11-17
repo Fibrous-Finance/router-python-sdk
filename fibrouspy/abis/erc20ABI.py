@@ -1,4 +1,4 @@
-erc20_abi = [
+erc20ABI = [
     {
         "constant": True,
         "inputs": [],
