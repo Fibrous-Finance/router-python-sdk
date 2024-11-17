@@ -5,8 +5,8 @@ from starknet_py.net.full_node_client import FullNodeClient
 from starknet_py.net.models.chains import StarknetChainId
 from starknet_py.net.signer.stark_curve_signer import KeyPair
 
-from fibrouspy import FibrousRouter
-from fibrouspy.utils import build_approve_call
+from fibrous_sdk_py import FibrousRouter
+from fibrous_sdk_py.utils import build_approve_call
 
 
 async def main():
@@ -21,7 +21,7 @@ async def main():
 
     router = FibrousRouter()
     tokens = router.supported_tokens()
-
+    chain_name="starknet"
     # amount to swap
     amount: int = int(0.001 * (10**tokens["eth"].decimals))
 
@@ -31,7 +31,9 @@ async def main():
         tokens["eth"].address,
         tokens["usdc"].address,
         0.01,
-        your_public_key)
+        your_public_key,
+        chain_name
+        )
 
     # approve call
     approve_call = build_approve_call(

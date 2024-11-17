@@ -1,4 +1,4 @@
-from fibrouspy import FibrousRouter 
+from fibrous_sdk_py import FibrousRouter 
 
 async def main():
     chain_name = "scroll"

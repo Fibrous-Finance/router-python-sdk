@@ -1,5 +1,5 @@
 from web3 import Web3
-from fibrouspy import FibrousRouter
+from fibrous_sdk_py import FibrousRouter
 from eth_utils import to_wei
 
 # RPC URL for the Scroll network
@@ -38,13 +38,14 @@ async def main():
 
     # Build the transaction
     slippage = 1  # 1% slippage
+    chain_name = "scroll"
     swap_call = await fibrous.build_transaction(
         input_amount,
         token_in_address,
         token_out_address,
         slippage,
         DESTINATION,
-        "scroll"
+        chain_name
     )
 
     # Approve the tokens

@@ -1,8 +1,8 @@
 from setuptools import setup, find_packages
 
 setup(
-    name='fibrouspy',
-    version='0.2.0',
+    name='fibrous-sdk-py',
+    version='0.1.0',
     packages=find_packages(),
     install_requires=[
         "requests",

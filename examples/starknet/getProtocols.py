@@ -1,7 +1,7 @@
 import asyncio
 
 # Assuming the Router class we translated previously is in router.py
-from fibrouspy import FibrousRouter
+from fibrous_sdk_py import FibrousRouter
 
 # Example of getting an object of supported protocols
 async def main():

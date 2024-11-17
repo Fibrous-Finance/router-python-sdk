@@ -1,7 +1,7 @@
-from fibrouspy import FibrousRouter  # Assuming the Router class we translated earlier is saved in router.py
+from fibrous_sdk_py import FibrousRouter  # Assuming the Router class we translated earlier is saved in router.py
 
 async def main():
-    chain_name = "starknet"
+    chain_name = "starknet" 
     fibrous = FibrousRouter()  # Create a new Router instance
 
     # Get supported tokens
