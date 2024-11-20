@@ -4,14 +4,14 @@ Python client for Fibrous Router. It makes it easy to get the tokens and protoco
 
 ## Installation
 
-You can install fibrous-py via Pip.
+You can install fibrous-python via Pip.
 ```bash
-pip install fibrous-py
+pip install fibrous-python
 ```
 Or
 ```bash
 git clone https://github.com/Fibrous-Finance/router-python-sdk
-cd fibrous_py
+cd fibrous_python
 pip install .
 ```
 
@@ -19,7 +19,7 @@ pip install .
 
 Create Fibrous client:
 ```python
-from fibrous_py import FibrousClient
+from fibrous_python import FibrousClient
 
 client = FibrousClient()
 
@@ -113,8 +113,8 @@ from starknet_py.net.full_node_client import FullNodeClient
 from starknet_py.net.models.chains import StarknetChainId
 from starknet_py.net.signer.stark_curve_signer import KeyPair
 
-from fibrous_py.core import FibrousClient
-from fibrous_py.utils import build_approve_call
+from fibrous_python.core import FibrousClient
+from fibrous_python.utils import build_approve_call
 
 
 async def main():

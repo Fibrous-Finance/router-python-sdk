@@ -1,5 +1,5 @@
 from web3 import Web3
-from fibrous_py import FibrousRouter
+from fibrous_python import FibrousRouter
 from eth_utils import to_wei
 
 # RPC URL for the Scroll network

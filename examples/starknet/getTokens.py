@@ -1,4 +1,4 @@
-from fibrous_py import FibrousRouter
+from fibrous_python import FibrousRouter
 
 def getTokens():
     chainName ='starknet' 
