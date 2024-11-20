@@ -1,9 +1,8 @@
 import requests
+from .models import (erc20ABI, fibrousRouterABI)
 from web3 import Web3
 from web3.contract import Contract
 from typing import Any, Dict, List, Optional, Union
-from abis.erc20ABI import erc20ABI
-from abis.fibrousRouterABI import fibrousRouterABI
 
 class FibrousRouter:
     DEFAULT_API_URL = "https://api.fibrous.finance"

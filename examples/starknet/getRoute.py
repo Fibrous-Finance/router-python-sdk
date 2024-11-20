@@ -1,4 +1,4 @@
-from fibrous_sdk_py import FibrousRouter  # Assuming the Router class we translated earlier is saved in router.py
+from fibrous_py import FibrousRouter  # Assuming the Router class we translated earlier is saved in router.py
 
 async def main():
     chain_name = "starknet" 

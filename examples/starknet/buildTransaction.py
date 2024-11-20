@@ -5,8 +5,8 @@ from starknet_py.net.full_node_client import FullNodeClient
 from starknet_py.net.models.chains import StarknetChainId
 from starknet_py.net.signer.stark_curve_signer import KeyPair
 
-from fibrous_sdk_py import FibrousRouter
-from fibrous_sdk_py.utils import build_approve_call
+from fibrous_py import FibrousRouter
+from fibrous_py.utils import build_approve_call
 
 
 async def main():

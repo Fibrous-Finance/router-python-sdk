@@ -1,4 +1,4 @@
-from fibrous_sdk_py import FibrousRouter
+from fibrous_py import FibrousRouter
 
 def getTokens():
     chainName ='scroll' 
