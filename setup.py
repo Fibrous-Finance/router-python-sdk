@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 
 setup(
-    name='fibrouspy',
+    name='fibrous-python',
     version='0.1.0',
     packages=find_packages(),
     install_requires=[
@@ -18,11 +18,11 @@ setup(
         'console_scripts': [
         ],
     },
-    author='hkey',
+    author='kermo',
     description='Fibrous Finance Python Client.',
     long_description=open('README.md').read(),
     long_description_content_type='text/markdown',
-    url='https://github.com/hkey0/fibrous-py',
+    url='https://github.com/Fibrous-Finance/router-python-sdk',
     classifiers=[
         'Programming Language :: Python :: 3',
         'License :: OSI Approved :: MIT License',

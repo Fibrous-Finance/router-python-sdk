@@ -4,14 +4,14 @@ Python client for Fibrous Router. It makes it easy to get the tokens and protoco
 
 ## Installation
 
-You can install fibrouspy via Pip.
+You can install fibrous-python via Pip.
 ```bash
-pip install fibrouspy
+pip install fibrous-python
 ```
 Or
 ```bash
-git clone https://github.com/hkey0/fibrous-py
-cd fibrous-py
+git clone https://github.com/Fibrous-Finance/router-python-sdk
+cd fibrous_python
 pip install .
 ```
 
@@ -19,7 +19,7 @@ pip install .
 
 Create Fibrous client:
 ```python
-from fibrouspy import FibrousClient
+from fibrous_python import FibrousClient
 
 client = FibrousClient()
 
@@ -31,7 +31,8 @@ client = FibrousClient(route_url="https://api.fibrous.finance",
 
 Get supported tokens by Fibrous.
 ```python
-tokens = client.supported_tokens()
+chainName="" #starknet or scroll
+tokens = client.supported_tokens(chainId)
 tokens["eth"]
 
 # expected output:
@@ -50,10 +51,12 @@ Token(
 
 Get best route:
 ```python
-tokens = client.supported_tokens()
+chainName="" #starknet or scroll
+tokens = client.supported_tokens(chainId)
 route = client.get_best_route(amount=10**12,
                         token_in_address=tokens["eth"].address,
-                        token_out_address=tokens["usdc"].address)
+                        token_out_address=tokens["usdc"].address),
+                        chainName
 route
 
 # expected output:
@@ -81,13 +84,16 @@ The slippage object contains the slippage value calculated by processing the inp
 
 Build transaction:
 ```python
+chainName="" # Chain name should be "starknet" for StarkNet and "scroll" for Scroll
 tokens    = client.supported_tokens()
 swap_call = client.build_transaction(input_amount=10**12,
                         token_in_address=tokens["eth"].address,
                         token_out_address=tokens["usdc"].address,
                         slippage=0.01,
                         # starknet address
-                        destination="0x07bfe36393355f52844e45622ef0f0fd9bcb18c63f9004060effc8cc0970f8e1")
+                        destination="0x07bfe36393355f52844e45622ef0f0fd9bcb18c63f9004060effc8cc0970f8e1",
+                        chain_name
+                        )
 
 # expected output:
 Call(
@@ -107,8 +113,8 @@ from starknet_py.net.full_node_client import FullNodeClient
 from starknet_py.net.models.chains import StarknetChainId
 from starknet_py.net.signer.stark_curve_signer import KeyPair
 
-from fibrouspy.core import FibrousClient
-from fibrouspy.utils import build_approve_call
+from fibrous_python.core import FibrousClient
+from fibrous_python.utils import build_approve_call
 
 
 async def main():
@@ -120,9 +126,9 @@ async def main():
         key_pair=KeyPair(private_key=your_private_key,
                          public_key=your_public_key),
         chain=StarknetChainId.MAINNET)
-
+    chainName="starknet"
     client = FibrousClient()
-    tokens = client.supported_tokens()
+    tokens = client.supported_tokens(chainName)
 
     # amount to swap
     amount: int = int(0.001 * (10**tokens["eth"].decimals))
@@ -133,7 +139,8 @@ async def main():
         tokens["eth"].address,
         tokens["usdc"].address,
         0.01,
-        your_public_key)
+        your_public_key,
+        chainName)
 
     # approve call
     approve_call = build_approve_call(
